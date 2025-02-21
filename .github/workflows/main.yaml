@@ -34,7 +34,6 @@ jobs:
           name: flask-api
           path: |
             .
-            requirements.txt
             !venv/
   deploy:
     runs-on: ubuntu-20.04
