@@ -2,7 +2,7 @@ name: Build and deploy Python app to Azure Web App
 
 env:
   AZURE_WEBAPP_NAME: 'thachpol-devsecops'   # set this to your application's name
-  PYTHON_VERSION: '3.9'               
+  PYTHON_VERSION: '3.12'               
 on:
   push:
     branches:
@@ -36,7 +36,6 @@ jobs:
           name: flask-api
           path: |
             .
-            requirements.txt
             !venv/
   deploy:
     runs-on: ubuntu-20.04
