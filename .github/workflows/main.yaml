@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     permissions:
      actions: read
      contents: read
@@ -30,7 +30,7 @@ jobs:
           source venv/bin/activate
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
+
       - name: Analyze with CodeQL
         uses: github/codeql-action/init@v3
         with:
@@ -40,6 +40,7 @@ jobs:
         uses: github/codeql-action/analyze@v3
         with:
          category: "/language:${{matrix.language}}"
+         
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
@@ -49,7 +50,7 @@ jobs:
             .
             !venv/
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     needs: build
     environment:
       name: 'production'
