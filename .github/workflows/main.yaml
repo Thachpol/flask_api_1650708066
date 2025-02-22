@@ -1,8 +1,8 @@
 name: Build and deploy Python app to Azure Web App
 
 env:
-  AZURE_WEBAPP_NAME: 'thachpol-devsecops'   # set this to your application's name
-  PYTHON_VERSION: '3.12'               
+  AZURE_WEBAPP_NAME: 'oam-devsecops'   # set this to your application's name
+  PYTHON_VERSION: '3.9'               
 on:
   push:
     branches:
@@ -15,6 +15,7 @@ jobs:
      actions: read
      contents: read
      security-events: write
+
     steps:
       - uses: actions/checkout@v4
 
